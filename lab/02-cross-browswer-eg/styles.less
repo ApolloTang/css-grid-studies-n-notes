@@ -1,0 +1,71 @@
+//https://codepen.io/apollotang/pen/vMzGOz?editors=1100
+
+
+// Old Specs:: https://msdn.microsoft.com/en-us/library/hh673533%28v=vs.85%29.aspx
+// New Specs: http://learncssgrid.com/
+
+.grid {
+  /** Grid Definition */
+  display: -ms-grid;
+  display: grid;
+
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns:  repeat( 4, 1fr );
+
+  -ms-grid-rows: 270px 270px 270px 270px;
+  grid-template-rows: repeat( 4, 270px );
+
+    .grid-item {
+        /** Basic Styling */
+        background-color: #000;
+        border: 1px solid red;
+        color: #fff;
+        text-align: center;
+        line-height: 270px;
+
+        /** Grid Item Span */
+        &.height-2x {
+           -ms-grid-row-span: 2;
+               grid-row: span 2;
+        }
+        &.width-2x {
+          -ms-grid-column-span: 2;
+              grid-column: span 2;
+        }
+
+        /** Explicit Positioning - For IE 10, IE 11 and Edge > 16 */
+         &:nth-child(1){
+          -ms-grid-row: 1;
+          -ms-grid-column: 1;
+        }
+        &:nth-child(2){
+          -ms-grid-row: 1;
+          -ms-grid-column: 3;
+        }
+        &:nth-child(3){
+          -ms-grid-row: 1;
+          -ms-grid-column: 4;
+        }
+        &:nth-child(4){
+          -ms-grid-row: 2;
+          -ms-grid-column: 3;
+        }
+        &:nth-child(5){
+          -ms-grid-row: 3;
+          -ms-grid-column: 1;
+        }
+        &:nth-child(6){
+          -ms-grid-row: 3;
+          -ms-grid-column: 2;
+        }
+        &:nth-child(7){
+          -ms-grid-row: 4;
+          -ms-grid-column: 2;
+        }
+        &:nth-child(8){
+          -ms-grid-row: 3;
+          -ms-grid-column: 3;
+        }
+
+    }
+}

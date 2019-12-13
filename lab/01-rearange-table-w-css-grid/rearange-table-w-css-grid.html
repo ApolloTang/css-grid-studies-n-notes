@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>css grid on table</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      padding-top:100px;
+    }
+    th, td {
+      padding: 3px;
+      border: 1px solid black;
+    }
+    .t, .tr, th, td {
+      display: block;
+    }
+    .tr-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-template-areas:
+        "a b"
+        "c c"
+        "d e"
+        "f g";
+    }
+
+    .a1 {
+      grid-area: a;
+    }
+    .a2 {
+      grid-area: a;
+    }
+    .a3 {
+      grid-area: b;
+    }
+
+    .b1 {
+      grid-area: c;
+    }
+    .b2 {
+      grid-area: d;
+    }
+    .b3 {
+      grid-area: e;
+    }
+
+    .c1 {
+      grid-area: c;
+    }
+    .c2 {
+      color: red;
+      grid-area: f;
+    }
+    .c3 {
+      color: red;
+      grid-area: g;
+    }
+
+  </style>
+</head>
+
+<body>
+<div class="app">
+
+
+<table class="t">
+<tr class="tr-grid">
+  <th scope="col" class="a1 h-date">date</th>
+  <th scope="col" class="a2 h-des">description</th>
+  <th scope="col" class="a3 h-wd">widraw</th>
+
+  <th scope="row" class="b1 d-date">jan 1</th>
+  <td             class="b2 d-des">starbuck</td>
+  <td             class="b3 d-wd">100</td>
+
+  <th scope="row" class="c1 d-date">jan 1</th>
+  <td             class="c2 d-des">tim holton</td>
+  <td             class="c3 d-wd">200</td>
+
+</tr>
+</table>
+
+  </div>
+
+</body>
+
+</html>
