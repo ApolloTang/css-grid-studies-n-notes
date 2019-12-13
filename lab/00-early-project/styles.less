@@ -40,7 +40,7 @@
 @media screen and (min-width: 700px) {
   body { background: blue; }
   .a {
-    grid-column: ~"1 / 2";
+    grid-column: ~"1 / 2"; /* tilde is the escaped for the LESS parser: https://stackoverflow.com/questions/10782054/what-does-the-tilde-squiggle-twiddle-css-selector-mean */
     grid-row: ~"1 / 2";
     -ms-grid-column-span: 1;
     -ms-grid-row: 1;
