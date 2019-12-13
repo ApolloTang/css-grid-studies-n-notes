@@ -1,0 +1,89 @@
+// Old Specs:: https://msdn.microsoft.com/en-us/library/hh673533%28v=vs.85%29.aspx
+// New Specs: http://learncssgrid.com/
+
+  * {
+    box-sizing: border-box;
+  }
+  .grid {
+    height: 200px;
+    outline: blue solid 1px;
+    width: 100%;
+    display: -ms-grid;
+    display: grid;
+
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    -ms-grid-rows: 50px auto 50px;
+    grid-template-rows: 50px auto 50px;
+
+    // gap does not work on ie
+    /* -ms-grid-column-gap: 10px; */
+    /* grid-column-gap: 10px; */
+    /* grid-row-gap: 15px; */
+  }
+
+  .grid-item {
+    background-color: #000;
+    border: 1px solid red;
+    color: #fff;
+    height: 100%;
+    min-width: 0px;
+    overflow: hidden;
+  }
+  .grid-item > div {
+    border: 10px solid cyan;
+    width: 100%;
+    text-align: center;
+  }
+
+@media screen and (min-width: 700px) {
+  body { background: blue; }
+  .a {
+    grid-column: ~"1 / 2";
+    grid-row: ~"1 / 2";
+    -ms-grid-column-span: 1;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  .c {
+      grid-column: ~"2 / 4";
+      grid-row: ~"2 / 3";
+      -ms-grid-column-span: 2;
+      -ms-grid-row: 2;
+      -ms-grid-column: 2;
+  }
+  .b {
+    grid-column: ~"4 / 5";
+    grid-row: ~"1 / 2";
+    -ms-grid-column-span: 1;
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
+  }
+}
+
+
+@media screen and (max-width: 699px) {
+  body { background: red; }
+  .b {
+    grid-column: ~"1 / 5";
+    grid-row: ~"1 / 2";
+    -ms-grid-column-span: 4;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  .a {
+      grid-column: ~"1 / 5";
+      grid-row: ~"2 / 3";
+      -ms-grid-column-span: 4;
+      -ms-grid-row: 2;
+      -ms-grid-column: 1;
+  }
+  .c {
+    grid-column: ~"1 / 5";
+    grid-row: ~"3 / 4";
+    -ms-grid-column-span: 4;
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+}
